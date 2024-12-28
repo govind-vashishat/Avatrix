@@ -9,6 +9,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Video } from 'lucide-react';
+import { AxiosError } from 'axios';
 
 type Avatar = {
     id: string;
@@ -140,8 +141,8 @@ const GenerateForm = () => {
                     setErrorMessage("Unexpected response");
                 }
                 
-            } catch (error: any) {
-                if(error.response) {
+            } catch (error: unknown) {
+                if(error instanceof AxiosError && error.response) {
                     const status = error.response.status;
                     const data = error.response.data;
                     if(status === 400) {
