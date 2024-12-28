@@ -1,5 +1,5 @@
 import axios from "axios";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 type Avatar = {
     avatar_id: string,
@@ -7,7 +7,7 @@ type Avatar = {
     preview_image_url: string,
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
     try {
         const response = await axios.get("https://api.heygen.com/v2/avatars", {
             headers: {

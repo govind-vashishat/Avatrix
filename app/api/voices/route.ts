@@ -6,7 +6,7 @@ type Voice = {
     gender: string;
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
     try {
         const response = await axios.get("https://api.heygen.com/v1/voice.list", {
             headers: {
