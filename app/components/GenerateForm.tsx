@@ -165,7 +165,7 @@ const GenerateForm = () => {
             clearInterval(pollingInterval); // Stop the polling
             alert("Timeout: Video status not updated within 5 minutes");
             setGenerating(false);
-        }, 300000); 
+        }, 900000); 
         
        } else {
         alert("No video id");
