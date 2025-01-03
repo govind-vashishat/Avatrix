@@ -30,7 +30,7 @@ const GenerateForm = () => {
     const [selectedAvatarId, setSelectedAvatarId] = useState<string>("");
     const [selectedVoiceId, setSelectedVoiceId] = useState<string>("");
     const [inputText, setInputText] = useState<string>("");
-    const [videoId, setVideoId] = useState<string>("");
+    const [statusMessage, setStatusMessage] = useState<string>("");
     const [generating, setGenerating] = useState<boolean>(false);
     const [videoUrl, setvideoUrl] = useState<string | undefined>(undefined);
     const [ErrorMessage, setErrorMessage] = useState<string | null>(null)
@@ -106,9 +106,6 @@ const GenerateForm = () => {
               } 
 
               console.log(response.data.videoID);
-              setVideoId(response.data.videoID);
-
-              setVideoId(response.data.videoID);
 
               getVideoStatus(response.data.videoID);
               
@@ -136,7 +133,8 @@ const GenerateForm = () => {
                 }
     
                 if(response.status === 202) {
-                    console.log(response.data.message)
+                    console.log(response.data.message);
+                    setStatusMessage(response.data.message);
                 } else {
                     setErrorMessage("Unexpected response");
                 }
@@ -273,7 +271,7 @@ const GenerateForm = () => {
             />
         </div>
 
-        <h1 className='font-sans text-xl text-center md:text-3xl mt-10 flex items-center justify-center p-5'>All done! Click on the button below to bring your video to life</h1>
+        <h1 className='font-sans text-2xl text-center md:text-3xl mt-10 flex items-center justify-center p-5'>All done! Click on the button below to bring your video to life</h1>
 
         <div className='flex justify-center items-center'>
         <Button
@@ -281,7 +279,7 @@ const GenerateForm = () => {
             className='bg-white text-black hover:bg-zinc-700 hover:text-white mt-8 w-44 md:w-96 text-xl p-2 font-sans rounded-md'>Generate Video</Button>
         </div>
 
-        {videoId ? <p className='mt-10 text-center font-sans text-lg'>Your video id is: {videoId}</p> : null }
+        {generating ? <p className='mt-10 text-center text-xl p-1 md:text-3xl font-sans'>{statusMessage}</p> : null }
 
         {generating ? (
             <div className='flex items-center justify-center lg:ml-40 mt-10 p-2 max-w-4xl aspect-video'>

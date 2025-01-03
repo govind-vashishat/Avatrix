@@ -57,12 +57,12 @@ export async function GET(req: NextRequest) {
             )
         } else if(Status === "processing" || Status === "pending") {
             return NextResponse.json(
-                { message: `Video generation is ${Status}`, },
+                { message: `Video generation is: ${Status}. Please wait for a few minutes`, },
                 { status: 202 },
             )
         } else if(Status === "waiting") {
             return NextResponse.json(
-                { message: `Video generation is ${Status}`, },
+                { message: `Video generation is: ${Status}. Please wait for a few minutes`, },
                 { status: 202 },
             )
         } else if(Status === "failed") {
