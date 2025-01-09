@@ -279,7 +279,7 @@ const GenerateForm = () => {
             className='bg-white text-black hover:bg-zinc-700 hover:text-white mt-8 w-44 md:w-96 text-xl p-2 font-sans rounded-md'>Generate Video</Button>
         </div>
 
-        {generating ? <p className='mt-10 text-center text-xl p-1 md:text-3xl font-sans'>{statusMessage}</p> : null }
+        {generating ? <h1 className='mt-10 text-center text-xl p-1 md:text-3xl font-sans'>{statusMessage}</h1> : null }
 
         {generating ? (
             <div className='flex items-center justify-center lg:ml-40 mt-10 p-2 max-w-4xl aspect-video'>
