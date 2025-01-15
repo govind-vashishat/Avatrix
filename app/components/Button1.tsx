@@ -7,7 +7,7 @@ import React from 'react'
 const Button1 = () => {
     const router = useRouter();
     const handleClick = () => {
-        router.push("/create");
+        router.push("/auth/signup");
     }
   return (
     <div className="flex justify-center items-center mt-5 md:mt-8">

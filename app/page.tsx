@@ -2,9 +2,17 @@ import React from "react"
 import { Card, CardContent, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
 import Button1 from "./components/Button1"
+import { getServerSession } from "next-auth";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-export default function LandingPage() {
-  return (   
+export default async function LandingPage() {
+  const session = await getServerSession();
+  return (
+    <div>
+    <Navbar />
       <section className="max-w-7xl mx-auto flex flex-col items-center justify-center p-5">
         <div className="flex items-center justify-center text-white cursor-pointer border border-neutral-700 font-mono p-2 rounded-lg mt-2">Access to realistic avatars</div>
         <h1 className="font-sans text-2xl md:text-4xl text-center text-white mt-5">Create beautiful hyper realistic AI avatar videos with Avatrix</h1>
@@ -39,10 +47,22 @@ export default function LandingPage() {
           <div className="md:w-[1000px] w-[400px] h-[200px] bg-zinc-900 rounded-2xl mt-5 font-sans ml-2 p-5 md:p-8">
             <h1 className="text-center text-white">Simple, Straightforward and designed to help you make content faster.</h1>
             <p className="text-sm text-gray-400 mt-5 text-center">Ready to get started? Click on the button below to make your first AI avatar video!</p>
-            <Button1 />
+
+            {session?.user ? (
+              <div className="flex justify-center items-center mt-5 md:mt-8">
+              <Link 
+              className={buttonVariants({ variant: "outline" })} href="/create">Get Started</Link>
+          </div>
+            ) : 
+            <>
+              <Button1 />
+            </>
+            }
           </div>
           </div>
       </section>
+      <Footer />
+      </div>
   )
 }
 
