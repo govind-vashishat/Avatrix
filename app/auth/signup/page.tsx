@@ -16,7 +16,7 @@ const page = async () => {
       {/*left side black bg*/}
       <div className='w-full md:w-1/2 bg-black text-white p-8 flex flex-col justify-center items-center'>
       <h1 className='text-4xl md:text-6xl font-bold mb-6'>Avatrix</h1>
-      <p className='text-lg mb-6'>Welcome to Avatrix. Signup and get started!</p>
+      <p className='text-lg mb-6 text-center'>Welcome to Avatrix. Signup and get started!</p>
       <div className='aspect-video w-full max-w-md mx-auto bg-gray-800 rounded-lg overflow-hidden'>
         <video 
         className='w-full h-full object-cover'
