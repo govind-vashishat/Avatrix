@@ -14,7 +14,7 @@ const Footer = () => {
         </div>
     </div> 
     <div className='text-gray-400 text-sm text-center'>
-    <p>© 2024 Avatrix. All rights reserved.</p>
+    <p>© {new Date().getFullYear()} Avatrix. All rights reserved.</p>
     </div>  
     </>                      
   )
