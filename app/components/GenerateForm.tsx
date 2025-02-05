@@ -44,8 +44,6 @@ const GenerateForm = () => {
             if(response.data.error) {
                throw new Error("Unknown error occured");
             }
-
-            console.log(Avatars);
             setAvatars(Avatars);
         } catch (error) {
             console.error('Error fetching avatars', error);
@@ -64,7 +62,6 @@ const GenerateForm = () => {
                 throw new Error("Error fetching avatars");
             }
 
-            console.log(Voices);
             setVoices(Voices);
         } catch (error) {
             console.error('Error fetching voices', error);
@@ -105,8 +102,6 @@ const GenerateForm = () => {
                 throw new Error("Unknown error occured");
               } 
 
-              console.log(response.data.videoID);
-
               getVideoStatus(response.data.videoID);
               
             } catch (error) {
@@ -125,7 +120,6 @@ const GenerateForm = () => {
                 const response = await axios.get(`/api/generate?video_id=${id}`);
     
                 if(response.status === 200) {
-                    console.log("Video Url:", response.data.videoUrl);
                     setvideoUrl(response.data.videoUrl);
                     clearInterval(pollingInterval);
                     clearTimeout(timeoutId);
@@ -133,7 +127,6 @@ const GenerateForm = () => {
                 }
     
                 if(response.status === 202) {
-                    console.log(response.data.message);
                     setStatusMessage(response.data.message);
                 } else {
                     setErrorMessage("Unexpected response");
@@ -186,20 +179,7 @@ const GenerateForm = () => {
         fetchAvatars();
         fetchVoices();
      }, [])
-
-    useEffect(() => {
-        if(selectedAvatarId !== null) {
-            console.log(selectedAvatarId);
-        }
-    },[selectedAvatarId]);
-
-    useEffect(() => {
-        if(selectedVoiceId !== null) {
-            console.log(selectedVoiceId)
-        }
-    }, [selectedVoiceId])
     
-
   return (
     <div className='text-white flex flex-col justify-center mt-14'>
         <h1 className='font-sans text-3xl flex items-center justify-center md:justify-start'>Select your Avatar :</h1>

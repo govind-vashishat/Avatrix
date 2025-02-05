@@ -28,7 +28,6 @@ export async function GET(req: NextRequest) {
     
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('video_id');
-    console.log("Video id:", id);
     if(!id) {
         return NextResponse.json(
            { error: "No video id" },
@@ -37,7 +36,6 @@ export async function GET(req: NextRequest) {
     };
 
     try {
-        console.log("Making request to HeyGen API...");
         const response = await axios.get(`https://api.heygen.com/v1/video_status.get?video_id=${id}`, {
             headers: {
                 'Accept': 'application/json',
@@ -45,10 +43,7 @@ export async function GET(req: NextRequest) {
             }
         });
 
-        console.log("HeyGen API response:", response.data);
         const Status = response.data.data.status;
-
-        console.log("Video status:", Status);
 
         if(Status === "completed") {
             return NextResponse.json(
