@@ -153,7 +153,7 @@ const GenerateForm = () => {
         const pollingInterval = setInterval(checkStatus, interval);
 
         const timeoutId = setTimeout(() => {
-            clearInterval(pollingInterval); // Stop the polling
+            clearInterval(pollingInterval); 
             alert("Timeout: Video status not updated within 5 minutes");
             setGenerating(false);
         }, 900000); 
