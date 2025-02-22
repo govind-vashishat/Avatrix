@@ -7,9 +7,14 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { redirect } from "next/navigation";
 
 export default async function LandingPage() {
   const session = await getServerSession();
+  if(session?.user) {
+    redirect('/create');
+  };
+
   return (
     <div>
     <Navbar />
