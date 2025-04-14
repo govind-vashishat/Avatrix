@@ -182,7 +182,7 @@ const GenerateForm = () => {
     
   return (
     <div className='text-white flex flex-col justify-center mt-14'>
-        <h1 className='font-sans text-3xl flex items-center justify-center md:justify-start'>Select your Avatar :</h1>
+        <h1 className='font-sans text-3xl flex items-center justify-center'>Select your Avatar :</h1>
 
     {loadingAvatars ? (
         <div className='flex justify-center items-center mt-20'>
