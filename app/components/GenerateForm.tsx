@@ -208,7 +208,7 @@ const GenerateForm = () => {
                 </CarouselItem>
             ))}
         </CarouselContent>
-        <CarouselPrevious className='text-white bg-neutral-900'/>
+        <CarouselPrevious className='text-slate-200 bg-neutral-900'/>
         <CarouselNext className='text-white bg-neutral-900' />
       </Carousel>
     </div>
