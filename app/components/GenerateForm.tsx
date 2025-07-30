@@ -251,7 +251,7 @@ const GenerateForm = () => {
             />
         </div>
 
-        <h1 className='font-sans text-2xl text-center md:text-3xl mt-10 flex items-center justify-center p-5'>All done! Click on the button below to bring your video to life</h1>
+        <h1 className='font-sans text-2xl text-center md:text-3xl mt-10 flex items-center justify-center p-5'>All done! Click on the button below to bring your video to life!</h1>
 
         <div className='flex justify-center items-center'>
         <Button
