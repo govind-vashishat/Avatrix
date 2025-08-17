@@ -1,11 +1,11 @@
 import React from 'react'
 import GenerateForm from '../components/GenerateForm'
-import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { getServerSession } from 'next-auth';
 
-const page = async () => {
+export default async function Create() {
   const session = await getServerSession();
 
   if(!session?.user) {
@@ -26,5 +26,3 @@ const page = async () => {
     </div>
   )
 }
-
-export default page
